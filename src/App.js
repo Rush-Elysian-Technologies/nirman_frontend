@@ -6,12 +6,13 @@ import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Services from './components/Services';
+import SingleService from './components/SingleService';
 import Home from "./components/Home";
 import HomePageCustomerTestimonials from "./components/HomePageCustomerTestimonials";
 import SliderGallery from './components/SliderGallery';
 import Login from './components/Login';
 import Register from './components/Register';
-import Architect from './components/Architect';
+import AllVendors from './components/AllVendors';
 import Rent from './components/Rent';
 import Properties from './components/Rent/Properties';
 import PropertyServices from './components/Rent/PropertyServices';
@@ -61,7 +62,10 @@ function App() {
       <Route path='/Login' element={<Login/>} />
       <Route path='/Register' element={<Register/>} />
       <Route path='/HomePageCustomerTestimonials' element={<HomePageCustomerTestimonials/>} />
-      <Route path='/Architect' element={<Architect/>} />
+      {/* <Route path='/AllVendors/:category_id' element={<AllVendors />} /> */}
+      <Route path='/AllVendors/:category_id' element={<AllVendors />} />
+      {/* <Route path={`/AllVendors/${category_id}`} element={<AllVendors category_id={category_id} />} /> */}
+      <Route path='/SingleService' element={<SingleService/>} />
       <Route path='/SingleArchitect' element={<SingleArchitect/>} />
       <Route path='/SideDashboard' element={<SideDashboard/>} />
       <Route path='/CustProfile' element={<CustProfile/>} />

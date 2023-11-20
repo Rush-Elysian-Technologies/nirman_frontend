@@ -69,14 +69,14 @@ function CustHeader(){
               aria-label="Search"
             />
           </Form>
-            <Nav.Link href="/Services" className='me-4'>Services</Nav.Link>
+            {/* <Nav.Link href="/Services" className='me-4'>Services</Nav.Link> */}
             <Nav.Link href="/Services">Services</Nav.Link>
             <NavDropdown title="Buy/Sell" id="basic-nav-dropdown" className='me-4'>
             <NavDropdown.Item href="/Buy">Buy</NavDropdown.Item>
               <NavDropdown.Item href="/Sell">Sell</NavDropdown.Item>
               </NavDropdown>
             <Nav.Link href="/Rent">Rent</Nav.Link>
-            <NavDropdown title="My Account" id="basic-nav-dropdown">
+            <NavDropdown title="My Account" id="basic-nav-dropdown" className='me-4'>
               <NavDropdown.Item href="/SideDashboard">Dashboard</NavDropdown.Item>
               {/* <NavDropdown.Item href="/VendSideDashboard">Dashboard</NavDropdown.Item> */}
               <NavDropdown.Item href="/Login">
@@ -113,7 +113,7 @@ function VendHeader(){
               <NavDropdown.Item href="/Sell">Sell</NavDropdown.Item>
               </NavDropdown>
             <Nav.Link href="/Rent">Rent</Nav.Link>
-            <NavDropdown title="My Account" id="basic-nav-dropdown">
+            <NavDropdown title="My Account" id="basic-nav-dropdown" className='me-4'>
               <NavDropdown.Item href="/VendSideDashboard">Dashboard</NavDropdown.Item>
               <NavDropdown.Item href="/Login">
                 LogOut
@@ -129,8 +129,8 @@ function VendHeader(){
 
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userType, setUserType] = useState('vendor');
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [userType, setUserType] = useState('customer');
   let headerComponent;
   if (userType === 'customer') {
     headerComponent = isLoggedIn ? <CustHeader /> : <LoginHeader />;
