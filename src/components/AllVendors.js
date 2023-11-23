@@ -15,7 +15,7 @@ useEffect(() => {
    fetchData(baseUrl+'/servicecategory/?category='+category_id);
    //http://localhost:3000/AllVendors/$%7Bcategory_id%7D
    //http://localhost:3000/AllVendors/$%7Bcategory_id%7D
-   fetchData(baseUrl+'/servicecategory/3');
+   fetchData(baseUrl+'/servicecategory/1');
   // http://localhost:3000/AllVendors/$%7Bcategory_id%7D
 }, [category_id]);
 

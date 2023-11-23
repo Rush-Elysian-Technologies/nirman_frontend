@@ -50,7 +50,7 @@ function SingleService(props) {
 {/* <Link to={'/AllVendors/${service.title.id}'}> */}
 {/* <Link to={`/category/${category.title}/${category.id}`}>{category.title}</Link> */}
 {/* <Link to={`/AllVendors/${id}`}> */}
-<Link to={'/AllVendors/id'}>
+<Link to={'/AllVendors/:category_slug/:category_id'}>
 {/* <Link to={'/AllVendors/:category_id'}> */}
 <div className='card-body'>
     <h4 className='back-text'>
