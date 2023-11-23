@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 function SingleService(props) {
   const [isHovered, setIsHovered] = useState(true);
   const [isFlipped, setIsFlipped] = useState(true);
-  const { category_id } = useParams();
+  const { service,id,category_id } = useParams([]);
  
   const handleCardHover = () => {
     setIsHovered(true);
@@ -47,7 +47,11 @@ function SingleService(props) {
 </div>
 </div>
 {/* <Link to={`/AllVendors/${category_id}`}> */}
-<Link to={'/AllVendors/${category_id}'}>
+{/* <Link to={'/AllVendors/${service.title.id}'}> */}
+{/* <Link to={`/category/${category.title}/${category.id}`}>{category.title}</Link> */}
+{/* <Link to={`/AllVendors/${id}`}> */}
+<Link to={'/AllVendors/id'}>
+{/* <Link to={'/AllVendors/:category_id'}> */}
 <div className='card-body'>
     <h4 className='back-text'>
     <Card.Text className='mb-2 text-muted'>{props.service.title}</Card.Text>

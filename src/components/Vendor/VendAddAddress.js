@@ -31,7 +31,7 @@ function VendAddAddress() {
                   <label htmlFor="address" className="form-label">Address</label>
                   <textarea
                     className="form-control"
-                    id="address"
+                    id="address" rows={8}
                     value={address}
                     placeholder="Dr.no:10-10-10,Area,Street name,Building/Apartment name,locality near by, Pincode"
                     onChange={(e) => setAddress(e.target.value)}

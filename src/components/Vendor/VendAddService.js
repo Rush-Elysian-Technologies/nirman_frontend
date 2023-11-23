@@ -7,10 +7,13 @@ function VendAddService() {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [serviceImages, setServiceImages] = useState('');
+  const [phnum, setPhnum] = useState(''); // Fix: Define 'phnum' state
+  const [location, setLocation] = useState('');
+  const [tags, setTags] = useState('');
 
   useEffect(() => {
     // Fetch categories from your API
-    fetch('http://your-api-url/categories-endpoint')
+    fetch(`http://127.0.0.1:8000/api/addservice`)
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error fetching categories:', error));
@@ -40,13 +43,16 @@ function VendAddService() {
       price: price,
       description: description,
       serviceImages: serviceImages,
+      phnum: phnum, // Include 'phnum' in the form data
+      location: location,
+      tags: tags,
     };
     fetch('http://127.0.0.1:8000/api/addservice', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
+      // method: 'POST',
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      // body: JSON.stringify(formData),
     })
       .then(response => response.json())
       .then(data => console.log('Service submitted successfully:', data))
@@ -80,7 +86,17 @@ function VendAddService() {
                   </select>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="Price" className="form-label">Price</label>
+                  <label htmlFor="Description" className="form-label">Description</label>
+                  <textarea
+                    className="form-control"
+                    rows={8}
+                    id="Description"
+                    value={description}
+                    onChange={handleDescriptionChange}
+                  ></textarea>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="Price" className="form-label">Price per day</label>
                   <input
                     type="text"
                     className="form-control"
@@ -90,14 +106,64 @@ function VendAddService() {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="Description" className="form-label">Description</label>
-                  <textarea
+                  <label htmlFor="Price" className="form-label">Price per hour</label>
+                  <input
+                    type="text"
                     className="form-control"
-                    rows={8}
-                    id="Description"
-                    value={description}
-                    onChange={handleDescriptionChange}
-                  ></textarea>
+                    id="Price"
+                    value={price}
+                    onChange={handlePriceChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="Price" className="form-label">Price per sqfoot</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="Price"
+                    value={price}
+                    onChange={handlePriceChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="Price" className="form-label">Price per service</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="Price"
+                    value={price}
+                    onChange={handlePriceChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="phnum" className="form-label">Phone number</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="phnum"
+                    value={phnum}
+                    onChange={handlePriceChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="Location" className="form-label">Location</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="Location"
+                    value={location}
+                    onChange={handlePriceChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="Tags" className="form-label">Tags</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="Tags"
+                    value={tags}
+                    onChange={handlePriceChange}
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="ProductImg" className="form-label">Service Images</label>
@@ -156,12 +222,36 @@ export default VendAddService;
 //                                 </select>
 //                             </div>
 //                             <div className="mb-3">
-//                                 <label for="Price" className="form-label">Price</label>
+//                                 <label for="Description" className="form-label">Description</label>
+//                                 <textarea className="form-control" rows={8} id="Description"></textarea>
+//                             </div>
+//                             <div className="mb-3">
+//                                 <label for="Price" className="form-label">Price per day</label>
 //                                 <input type="text" className="form-control" id="Price" />
 //                             </div>
 //                             <div className="mb-3">
-//                                 <label for="Description" className="form-label">Description</label>
-//                                 <textarea className="form-control" rows={8} id="Description"></textarea>
+//                                 <label for="Price" className="form-label">Price per hour</label>
+//                                 <input type="text" className="form-control" id="Price" />
+//                             </div>
+//                             <div className="mb-3">
+//                                 <label for="Price" className="form-label">Price per sqfeet</label>
+//                                 <input type="text" className="form-control" id="Price" />
+//                             </div>
+//                             <div className="mb-3">
+//                                 <label for="Price" className="form-label">Price per service</label>
+//                                 <input type="text" className="form-control" id="Price" />
+//                             </div>
+//                             <div className="mb-3">
+//                                 <label for="Location" className="form-label">Location</label>
+//                                 <textarea type="text" className="form-control" id="Location"></textarea>
+//                             </div>
+//                             <div className="mb-3">
+//                                 <label for="phnum" className="form-label">Phone number</label>
+//                                 <input className="form-control" id="phnum"></input>
+//                             </div>
+//                             <div className="mb-3">
+//                                 <label for="Tags" className="form-label">Tags</label>
+//                                 <textarea type="text" className="form-control" id="Tags"></textarea>
 //                             </div>
 //                             <div className="mb-3">
 //                                 <label for="ProductImg" className="form-label">Service Images</label>
@@ -180,3 +270,7 @@ export default VendAddService;
 // }
 
 // export default VendAddService;
+
+
+
+

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import SingleService from './SingleService';
 
 function Services(props) {
-  const service=[
-    {
-    "title":'Architect',
-    'detail':'Teja Interiors'
-  },
-  {
-    "title":'Civil Engineer',
-    'detail':'Chowturi engineers'
-  },
-]
+//   const service=[
+//     {
+//     "title":'Architect',
+//     'detail':'Teja Interiors'
+//   },
+//   {
+//     "title":'Civil Engineer',
+//     'detail':'Chowturi engineers'
+//   },
+// ]
   const [Services, setServices] = useState([]);
 
   useEffect(() => {

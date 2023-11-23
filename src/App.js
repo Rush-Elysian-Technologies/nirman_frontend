@@ -64,6 +64,7 @@ function App() {
       <Route path='/HomePageCustomerTestimonials' element={<HomePageCustomerTestimonials/>} />
       {/* <Route path='/AllVendors/:category_id' element={<AllVendors />} /> */}
       <Route path='/AllVendors/:category_id' element={<AllVendors />} />
+      {/* <Route path='/AllVendors/id' element={<AllVendors />} /> */}
       {/* <Route path={`/AllVendors/${category_id}`} element={<AllVendors category_id={category_id} />} /> */}
       <Route path='/SingleService' element={<SingleService/>} />
       <Route path='/SingleArchitect' element={<SingleArchitect/>} />

@@ -130,7 +130,7 @@ function VendHeader(){
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [userType, setUserType] = useState('customer');
+  const [userType, setUserType] = useState('vendor');
   let headerComponent;
   if (userType === 'customer') {
     headerComponent = isLoggedIn ? <CustHeader /> : <LoginHeader />;
