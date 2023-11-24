@@ -60,7 +60,7 @@ function SingleServiceCategories(props) {
 {/* <Link to={'/AllVendors/${:category_id}'}> */}
 {/* <Link to={'/AllVendors/:category_slug/:category_id'}> */}
 {/* <Link to={`/AllVendors/servicecategory/${category_id}`}> */}
-<Link to={'SingleCategoryVendor'}>
+<Link to={'/SingleCategoriesVendor'}>
 <div className='card-body' key={props.service.id} >
     <h4 className='back-text'>
     <Card.Text className='mb-2 text-muted'>{props.service.title}</Card.Text>

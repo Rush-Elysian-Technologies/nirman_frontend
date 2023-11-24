@@ -10,42 +10,50 @@ function SingleCategoriesVendor(props) {
   const [totalResult,setTotalResults] = useState(0);
   const { id,category_id, category_slug,categoryId} = useParams();
 
+  useEffect(() => {
+    //   // Fetch data from Django backend API
+      fetch('http://127.0.0.1:8000/api/servicecategory/1')
+        .then(response => response.json())
+        .then(json => setVendors(json))
+        .catch(error => console.error('Error fetching vendors:', error));
+    }, [category_id]); // Empty dependency array means this effect will run once after the initial render
+
 // Fetch data from API products
-useEffect(() => {
-   fetchData(baseUrl+'/servicecategory/?category='+category_id);
-   //fetchData(baseUrl+'/servicecategory/?id='+category_id);
-//   fetchData(baseUrl+'/servicecategory/?category=1');
-// fetchData(baseUrl+'/servicecategory/'+category_id);
-   // fetchData(baseUrl+'/servicecategory/'+category_id);
-   fetchData(baseUrl+`/servicecategory/1`);
-   // fetchData(baseUrl+'/servicecategory/1');
-}, [category_id]);
+// useEffect(() => {
+//    fetchData(baseUrl+'/servicecategory/?category='+category_id);
+//    //fetchData(baseUrl+'/servicecategory/?id='+category_id);
+// //   fetchData(baseUrl+'/servicecategory/?category=1');
+// // fetchData(baseUrl+'/servicecategory/'+category_id);
+//    // fetchData(baseUrl+'/servicecategory/'+category_id);
+//    fetchData(baseUrl+`/servicecategory/1`);
+//    // fetchData(baseUrl+'/servicecategory/1');
+// }, [category_id]);
 
 
 
-function fetchData(baseurl) {
-  fetch(baseurl)
-      .then((response) => response.json())
-      .then((data) => {
-          // this shows product data results
-          setVendors(data.results);
-          // this is total products result
-          setTotalResults(data.count);
-      });
-}
+// function fetchData(baseurl) {
+//   fetch(baseurl)
+//       .then((response) => response.json())
+//       .then((data) => {
+//           // this shows product data results
+//           setVendors(data.results);
+//           // this is total products result
+//           setTotalResults(data.count);
+//       });
+// }
 
-function changeUrl(baseurl){
-  console.log(baseurl);
-  fetchData(baseurl);
-}
+// function changeUrl(baseurl){
+//   console.log(baseurl);
+//   fetchData(baseurl);
+// }
 
- // Create links for products
-var links=[];
-var limit=1;
-var totalLinks=totalResult/limit;
-for(let i=1; i<=totalLinks; i++){
-    links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/servicecategory/?category=${category_id}&page=${i}`)} to={`/servicecategory/category_id/${category_slug}/${category_id}/?page=${i}`} class="page-link">{i}</Link></li>)
- }
+//  // Create links for products
+// var links=[];
+// var limit=1;
+// var totalLinks=totalResult/limit;
+// for(let i=1; i<=totalLinks; i++){
+//     links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/servicecategory/?category=${category_id}&page=${i}`)} to={`/servicecategory/category_id/${category_slug}/${category_id}/?page=${i}`} class="page-link">{i}</Link></li>)
+//  }
   
   return (
     <>
@@ -53,30 +61,25 @@ for(let i=1; i<=totalLinks; i++){
         {vendors&&vendors.map(vendor => (
           <Col key={vendor.id}>
             {/* Use Link for navigation */}
-            <Link to={`/vendor/${vendor.id}`}>
+            <Link to={`/SingleProductCategory`}>
               <Card style={{ width: '25rem' }} className="custom-card">
                 <Card.Img variant="top" src={vendor.logo} />
                 <Card.Body>
                   <Card.Title>{vendor.title}</Card.Title>
-                  <Card.Text>{vendor.vendor.username}</Card.Text>
+                  <Card.Text>{vendor.vendor}</Card.Text>
                 </Card.Body>
               </Card>
             </Link>
           </Col>
         ))}
       </Row>
-      <nav aria-label="Page navigation example"> 
+      {/* <nav aria-label="Page navigation example"> 
                 {/* we can show totla no of products here
                 {totalResult} */}
-                 <ul class="pagination">
+                 {/* <ul class="pagination">
                     {links}
                 </ul>
-             </nav> 
-      {/* <nav aria-label="Page navigation">
-      <ul className="pagination">
-      {paginationLinks}
-      </ul>
-    </nav> */}
+             </nav>  */} 
     </>
   );
 }
@@ -322,4 +325,5 @@ export default SingleCategoriesVendor;
   // //   setTotalResults(data.count);
   // // })
   //   .catch(error => console.error('Error fetching vendors:', error));
-  // }, [category_id]);
+  // }, [category_id]); 
+  //  <Link to={`/SingleProductCategory/${vendor.id}`}>
