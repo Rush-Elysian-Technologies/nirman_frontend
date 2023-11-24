@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import SingleService from './SingleService';
+import SingleService from './SingleServiceCategories';
+import { Link, useParams } from 'react-router-dom';
 
-function Services(props) {
-//   const service=[
-//     {
-//     "title":'Architect',
-//     'detail':'Teja Interiors'
-//   },
-//   {
-//     "title":'Civil Engineer',
-//     'detail':'Chowturi engineers'
-//   },
+function ServiceCategories(props) {
+  // const service=[
+  //   {
+  //   "title":'Architect',
+  //   'detail':'Teja Interiors'
+  // },
+  // {
+  //   "title":'Civil Engineer',
+  //   'detail':'Chowturi engineers'
+  // },
 // ]
   const [Services, setServices] = useState([]);
 
@@ -19,6 +20,11 @@ function Services(props) {
     fetch('http://127.0.0.1:8000/api/servicecategories')
       .then(response => response.json())
       .then(json => setServices(json))
+      // .then(json => {
+      //   // Check if the response is an array or an object with an array property
+      //   const servicesArray = Array.isArray(json) ? json : json.services;
+      //   setServices(servicesArray);
+      // })
       .catch(error => console.error('Error fetching vendors:', error));
   }, []); // Empty dependency array means this effect will run once after the initial render
 
@@ -36,7 +42,7 @@ function Services(props) {
   );
 }
 
-export default Services;
+export default ServiceCategories;
 
 
 

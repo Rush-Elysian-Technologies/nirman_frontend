@@ -5,10 +5,13 @@ import React, { useState } from 'react';
 import '../App.css';
 import { useParams } from 'react-router-dom';
  
-function SingleService(props) {
+function SingleServiceCategories(props) {
   const [isHovered, setIsHovered] = useState(true);
   const [isFlipped, setIsFlipped] = useState(true);
+  const [vendors, setVendors] = useState([]);
   const { service,id,category_id } = useParams([]);
+  
+  
  
   const handleCardHover = () => {
     setIsHovered(true);
@@ -18,6 +21,7 @@ function SingleService(props) {
     if (isFlipped) {
       // You can add the redirection logic here
       // For now, let's just log a message
+      <Link to={/AllVendors/id}></Link>
       console.log('Redirecting to Architect...');
     } else {
       setIsFlipped(true);
@@ -49,10 +53,15 @@ function SingleService(props) {
 {/* <Link to={`/AllVendors/${category_id}`}> */}
 {/* <Link to={'/AllVendors/${service.title.id}'}> */}
 {/* <Link to={`/category/${category.title}/${category.id}`}>{category.title}</Link> */}
-{/* <Link to={`/AllVendors/${id}`}> */}
-<Link to={'/AllVendors/:category_slug/:category_id'}>
-{/* <Link to={'/AllVendors/:category_id'}> */}
-<div className='card-body'>
+{/* <Link to={`/product/${props.product.title}/${props.product.id}`}></Link> */}
+{/* <Link to={`/AllVendors/${props.vendors.id}`}> */}
+{/* <Link to={'/AllVendors/:category_slug/:category_id'}> */}
+{/* <Route path="/api/servicecategory/:category_id" component={YourComponent} /> */}
+{/* <Link to={'/AllVendors/${:category_id}'}> */}
+{/* <Link to={'/AllVendors/:category_slug/:category_id'}> */}
+{/* <Link to={`/AllVendors/servicecategory/${category_id}`}> */}
+<Link to={'SingleCategoryVendor'}>
+<div className='card-body' key={props.service.id} >
     <h4 className='back-text'>
     <Card.Text className='mb-2 text-muted'>{props.service.title}</Card.Text>
     {/* <p>Architects are creative professionals who design and plan buildings, harmonizing aesthetics, functionality, and safety.</p> */}
@@ -63,7 +72,7 @@ function SingleService(props) {
   );
 }
  
-export default SingleService;
+export default SingleServiceCategories;
 
 
 
