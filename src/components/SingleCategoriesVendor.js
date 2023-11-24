@@ -4,20 +4,24 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link, useParams } from 'react-router-dom';
 
-function AllVendors(props) {
+function SingleCategoriesVendor(props) {
   const baseUrl = 'http://127.0.0.1:8000/api';
   const [vendors, setVendors] = useState([]);
   const [totalResult,setTotalResults] = useState(0);
-  const { id,category_id, category_slug,categoryId} = useParams([]);
-  
+  const { id,category_id, category_slug,categoryId} = useParams();
+
 // Fetch data from API products
 useEffect(() => {
    fetchData(baseUrl+'/servicecategory/?category='+category_id);
-   //http://localhost:3000/AllVendors/$%7Bcategory_id%7D
-   //http://localhost:3000/AllVendors/$%7Bcategory_id%7D
-   fetchData(baseUrl+'/servicecategory/1');
-  // http://localhost:3000/AllVendors/$%7Bcategory_id%7D
+   //fetchData(baseUrl+'/servicecategory/?id='+category_id);
+//   fetchData(baseUrl+'/servicecategory/?category=1');
+// fetchData(baseUrl+'/servicecategory/'+category_id);
+   // fetchData(baseUrl+'/servicecategory/'+category_id);
+   fetchData(baseUrl+`/servicecategory/1`);
+   // fetchData(baseUrl+'/servicecategory/1');
 }, [category_id]);
+
+
 
 function fetchData(baseurl) {
   fetch(baseurl)
@@ -35,13 +39,13 @@ function changeUrl(baseurl){
   fetchData(baseurl);
 }
 
-//  Create links for products
+ // Create links for products
 var links=[];
 var limit=1;
 var totalLinks=totalResult/limit;
 for(let i=1; i<=totalLinks; i++){
-    links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/servicecategory/?category=${category_id}&page=${i}`)} to={`/category/${category_slug}/${category_id}/?page=${i}`} class="page-link">{i}</Link></li>)
-}
+    links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/servicecategory/?category=${category_id}&page=${i}`)} to={`/servicecategory/category_id/${category_slug}/${category_id}/?page=${i}`} class="page-link">{i}</Link></li>)
+ }
   
   return (
     <>
@@ -61,10 +65,10 @@ for(let i=1; i<=totalLinks; i++){
           </Col>
         ))}
       </Row>
-      <nav aria-label="Page navigation example">
+      <nav aria-label="Page navigation example"> 
                 {/* we can show totla no of products here
                 {totalResult} */}
-                <ul class="pagination">
+                 <ul class="pagination">
                     {links}
                 </ul>
              </nav> 
@@ -77,7 +81,7 @@ for(let i=1; i<=totalLinks; i++){
   );
 }
 
-export default AllVendors;
+export default SingleCategoriesVendor;
 
 
 

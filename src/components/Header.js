@@ -29,7 +29,7 @@ function LoginHeader(){
             />
             {/* <Button variant="outline-success">Search</Button> */}
           </Form>
-            <Nav.Link href="/Services" className='me-4'>Services</Nav.Link>
+            <Nav.Link href="/ServiceCategories" className='me-4'>Services</Nav.Link>
             {/* </Nav> */}
             {/* <Nav.Link href="/Services" className='me-4'>Buy/Sell</Nav.Link> */}
             <NavDropdown title="Buy/Sell" id="basic-nav-dropdown" className='me-4'>
@@ -70,7 +70,7 @@ function CustHeader(){
             />
           </Form>
             {/* <Nav.Link href="/Services" className='me-4'>Services</Nav.Link> */}
-            <Nav.Link href="/Services">Services</Nav.Link>
+            <Nav.Link href="/ServiceCategories">Services</Nav.Link>
             <NavDropdown title="Buy/Sell" id="basic-nav-dropdown" className='me-4'>
             <NavDropdown.Item href="/Buy">Buy</NavDropdown.Item>
               <NavDropdown.Item href="/Sell">Sell</NavDropdown.Item>
@@ -107,7 +107,7 @@ function VendHeader(){
               aria-label="Search"
             />
           </Form>
-            <Nav.Link href="/Services">Services</Nav.Link>
+            <Nav.Link href="/ServiceCategories">Services</Nav.Link>
             <NavDropdown title="Buy/Sell" id="basic-nav-dropdown" className='me-4'>
             <NavDropdown.Item href="/Buy">Buy</NavDropdown.Item>
               <NavDropdown.Item href="/Sell">Sell</NavDropdown.Item>

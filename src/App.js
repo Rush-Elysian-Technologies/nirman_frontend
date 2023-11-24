@@ -5,14 +5,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Services from './components/Services';
-import SingleService from './components/SingleService';
+import ServiceCategories from './components/ServiceCategories';
+import SingleServiceCategories from './components/SingleServiceCategories';
 import Home from "./components/Home";
 import HomePageCustomerTestimonials from "./components/HomePageCustomerTestimonials";
 import SliderGallery from './components/SliderGallery';
 import Login from './components/Login';
 import Register from './components/Register';
-import AllVendors from './components/AllVendors';
+import SingleCategoriesVendor from './components/SingleCategoriesVendor';
 import Rent from './components/Rent';
 import Properties from './components/Rent/Properties';
 import PropertyServices from './components/Rent/PropertyServices';
@@ -49,7 +49,7 @@ function App() {
       {/* <Apps/> */}
       <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/Services' element={<Services/>} />
+      <Route path='/ServiceCategories' element={<ServiceCategories/>} />
       <Route path='/Rent' element={<Rent/>} />
       <Route path='/PropertyServices' element={<PropertyServices/>} />
       <Route path='/Properties' element={<Properties/>} />
@@ -62,12 +62,14 @@ function App() {
       <Route path='/Login' element={<Login/>} />
       <Route path='/Register' element={<Register/>} />
       <Route path='/HomePageCustomerTestimonials' element={<HomePageCustomerTestimonials/>} />
+      {/* <Route path='/AllVendors' element={<AllVendors/>} /> */}
       {/* <Route path='/AllVendors/:category_id' element={<AllVendors />} /> */}
-      <Route path='/AllVendors/:category_slug/:category_id' element={<AllVendors />} />
+      <Route path='/SingleCategoriesVendor' element={<SingleCategoriesVendor/>} />
       {/* <Route path='/AllVendors/:category_id' element={<AllVendors />} /> */}
+      {/* <Route path="/api/servicecategory/:category_id" component={<AllVendors />} /> */}
       {/* <Route path='/AllVendors/id' element={<AllVendors />} /> */}
       {/* <Route path={`/AllVendors/${category_id}`} element={<AllVendors category_id={category_id} />} /> */}
-      <Route path='/SingleService' element={<SingleService/>} />
+      <Route path='/SingleServiceCategories' element={<SingleServiceCategories/>} />
       <Route path='/SingleArchitect' element={<SingleArchitect/>} />
       <Route path='/SideDashboard' element={<SideDashboard/>} />
       <Route path='/CustProfile' element={<CustProfile/>} />
