@@ -17,7 +17,7 @@ import Rent from './components/Rent';
 import Properties from './components/Rent/Properties';
 import PropertyServices from './components/Rent/PropertyServices';
 import PopularArchitects from './components/PopularArchitects';
-import SingleArchitect from "./components/SingleArchitect";
+import SingleProductCategory from './components/SingleProductCategory';
 import SideDashboard from './components/Customer/SideDashboard';
 import CustProfile from './components/Customer/CustProfile';
 import CustLogin from './components/Customer/CustLogin';
@@ -70,7 +70,7 @@ function App() {
       {/* <Route path='/AllVendors/id' element={<AllVendors />} /> */}
       {/* <Route path={`/AllVendors/${category_id}`} element={<AllVendors category_id={category_id} />} /> */}
       <Route path='/SingleServiceCategories' element={<SingleServiceCategories/>} />
-      <Route path='/SingleArchitect' element={<SingleArchitect/>} />
+      <Route path='/SingleProductCategory' element={<SingleProductCategory/>} />
       <Route path='/SideDashboard' element={<SideDashboard/>} />
       <Route path='/CustProfile' element={<CustProfile/>} />
       <Route path='/CustPassword' element={<CustPassword/>} />

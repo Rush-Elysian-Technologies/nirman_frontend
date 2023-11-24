@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
  import { Link,  useParams } from 'react-router-dom';
 
-function SingleArchitect() {
+function SingleProductCategory() {
  // const [vendors, setVendors] = useState([]);
   const [totalResult,setTotalResults] = useState(0);
   const [similarProfessionals, setSimilarProfessionals] = useState([]);
@@ -231,7 +231,7 @@ function SingleArchitect() {
   );
 }
 
-export default SingleArchitect;
+export default SingleProductCategory;
 
 
 
