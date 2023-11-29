@@ -18,7 +18,7 @@ function SingleProductCategory() {
   const [reviews, setReviews] = useState([]);
   const [architectData,setArchitectData]=useState([]);
   const baseUrl = 'http://127.0.0.1:8000/api';
-  const { category_id,category_slug} = useParams();
+  const { id,category_id,category_slug} = useParams();
   // const vendorId = 1;
   
   // useEffect(() => {
@@ -35,18 +35,18 @@ function SingleProductCategory() {
   //     }
   //   };
 
-  useEffect(() => {
+ //  useEffect(() => {
     // Fetch data from Django backend API
-    fetch('http://127.0.0.1:8000/api/servicecategory/vendors/1')
-      .then(response => response.json())
-      .then(json => setArchitectData(json))
-      // .then(json => {
-      //   // Check if the response is an array or an object with an array property
-      //   const servicesArray = Array.isArray(json) ? json : json.services;
-      //   setServices(servicesArray);
-      // })
-      .catch(error => console.error('Error fetching vendors:', error));
-  }, []); // Empty dependency array means this effect will run once after the initial render
+  //   fetch('http://127.0.0.1:8000/api/servicecategory/vendors/${id}')
+  //     .then(response => response.json())
+  //     .then(json => setArchitectData(json))
+  //     // .then(json => {
+  //     //   // Check if the response is an array or an object with an array property
+  //     //   const servicesArray = Array.isArray(json) ? json : json.services;
+  //     //   setServices(servicesArray);
+  //     // })
+  //     .catch(error => console.error('Error fetching vendors:', error));
+  // }, []); // Empty dependency array means this effect will run once after the initial render
 
 
   //   fetchArchitectData();
@@ -54,41 +54,44 @@ function SingleProductCategory() {
   // useEffect(() => {
   //   fetchData(`${baseUrl}/servicecategory/vendors/1`);
   // }, []);
+  useEffect(() => {
+    fetchData(baseUrl+'/servicecategory/vendors/${vendorId}');
+}, []);
   
-  // function fetchData(baseurl) {
-  //   fetch(baseurl)
-  //     .then((response) =>  response.json())
-  //     .then((data) => {
-  //       // This shows product data results
-  //       setArchitectData(data.results);
-  //       // This is the total products result
-  //       setTotalResults(data.count);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching architect data:', error);
-  //     });
-  // }
+  function fetchData(baseurl) {
+    fetch(baseurl)
+      .then((response) =>  response.json())
+      .then((data) => {
+        // This shows product data results
+        setArchitectData(data.results);
+        // This is the total products result
+        setTotalResults(data.count);
+      })
+      .catch((error) => {
+        console.error('Error fetching architect data:', error);
+      });
+  }
   
-  // function changeUrl(baseurl) {
-  //   console.log(baseurl);
-  //   fetchData(baseurl);
-  // }
+  function changeUrl(baseurl) {
+    console.log(baseurl);
+    fetchData(baseurl);
+  }
   
-  // // Create links for products
-  // var links = [];
-  // var limit = 1;
-  // var totalLinks = totalResult / limit;
-  // for (let i = 1; i <= totalLinks; i++) {
-  //   links.push(
-  //     <li class="page-item">
-  //       <Link
-  //         onClick={() =>
-  //           changeUrl(`${baseUrl}/servicecategory/vendors/?category=${category_id}&page=${i}`)} to={`/servicecategory/vendors/category/${category_slug}/${category_id}/?page=${i}`}class="page-link">
-  //         {i}
-  //       </Link>
-  //     </li>
-  //   );
-  // }
+  // Create links for products
+  var links = [];
+  var limit = 1;
+  var totalLinks = totalResult / limit;
+  for (let i = 1; i <= totalLinks; i++) {
+    links.push(
+      <li class="page-item">
+        <Link
+          onClick={() =>
+            changeUrl(`${baseUrl}/servicecategory/vendors/?category=${category_id}&page=${i}`)} to={`/servicecategory/vendors/category/${category_slug}/${category_id}/?page=${i}`}class="page-link">
+          {i}
+        </Link>
+      </li>
+    );
+  }
   
   // useEffect(() => {
   //   fetch('http://127.0.0.1:8000/api/servicecategory/vendors/1')
