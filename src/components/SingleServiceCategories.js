@@ -10,8 +10,13 @@ function SingleServiceCategories(props) {
   const [isFlipped, setIsFlipped] = useState(true);
   const [vendors, setVendors] = useState([]);
   const { service,id,category_id } = useParams([]);
+  // const [Category, setCategories] = useState([]);
+  // const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   
-  
+  // const handleCategoryClick = (categoryId) => {
+  //   setSelectedCategoryId(categoryId);
+  // };
+
  
   const handleCardHover = () => {
     setIsHovered(true);
@@ -50,17 +55,12 @@ function SingleServiceCategories(props) {
 </div>
 </div>
 </div>
-{/* <Link to={`/AllVendors/${category_id}`}> */}
-{/* <Link to={'/AllVendors/${service.title.id}'}> */}
-{/* <Link to={`/category/${category.title}/${category.id}`}>{category.title}</Link> */}
-{/* <Link to={`/product/${props.product.title}/${props.product.id}`}></Link> */}
-{/* <Link to={`/AllVendors/${props.vendors.id}`}> */}
-{/* <Link to={'/AllVendors/:category_slug/:category_id'}> */}
-{/* <Route path="/api/servicecategory/:category_id" component={YourComponent} /> */}
-{/* <Link to={'/AllVendors/${:category_id}'}> */}
-{/* <Link to={'/AllVendors/:category_slug/:category_id'}> */}
-{/* <Link to={`/AllVendors/servicecategory/${category_id}`}> */}
-<Link to={'/SingleCategoriesVendor'}>
+<Link to={'/SingleCategoriesVendor/${service.title}/${category_id}'}>
+{/* <Link
+          key={service.id}
+          to={`/SingleCategoriesVendor/${service.id}`}
+          onClick={() => handleCategoryClick(service.id)}
+        > */}
 <div className='card-body' key={props.service.id} >
     <h4 className='back-text'>
     <Card.Text className='mb-2 text-muted'>{props.service.title}</Card.Text>
@@ -124,3 +124,15 @@ export default SingleServiceCategories;
 // }
 
 // export default SingleService;
+
+
+{/* <Link to={`/AllVendors/${category_id}`}> */}
+{/* <Link to={'/AllVendors/${service.title.id}'}> */}
+{/* <Link to={`/category/${category.title}/${category.id}`}>{category.title}</Link> */}
+{/* <Link to={`/product/${props.product.title}/${props.product.id}`}></Link> */}
+{/* <Link to={`/AllVendors/${props.vendors.id}`}> */}
+{/* <Link to={'/AllVendors/:category_slug/:category_id'}> */}
+{/* <Route path="/api/servicecategory/:category_id" component={YourComponent} /> */}
+{/* <Link to={'/AllVendors/${:category_id}'}> */}
+{/* <Link to={'/AllVendors/:category_slug/:category_id'}> */}
+{/* <Link to={`/AllVendors/servicecategory/${category_id}`}> */}

@@ -3,18 +3,19 @@ import SingleService from './SingleServiceCategories';
 import { Link, useParams } from 'react-router-dom';
 
 function ServiceCategories(props) {
-  // const service=[
-  //   {
-  //   "title":'Architect',
-  //   'detail':'Teja Interiors'
-  // },
-  // {
-  //   "title":'Civil Engineer',
-  //   'detail':'Chowturi engineers'
-  // },
-// ]
-  const [Services, setServices] = useState([]);
+  const service=[
+    {
+    "title":'Architect',
+    'detail':'Teja Interiors'
+  },
+  {
+    "title":'Civil Engineer',
+    'detail':'Chowturi engineers'
+  },
+]
 
+  const [Services, setServices] = useState([]);
+  const { id,category_id } = useParams([]);
   useEffect(() => {
     // Fetch data from Django backend API
     fetch('http://127.0.0.1:8000/api/servicecategories')
@@ -32,11 +33,13 @@ function ServiceCategories(props) {
     <>
       <section className='container mt-4'>
         <h3 className='mb-4'>All Services</h3>
+        {/* <Link to={`/SingleCategoriesVendor/${category_id}`}>  */}
         <div className='row mb-4'>
           {Services&&Services.map(service => (
             <SingleService key={service.id} service={service}/>
           ))}
         </div>
+        {/* </Link> */}
       </section>
     </>
   );

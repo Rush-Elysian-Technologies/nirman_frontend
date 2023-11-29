@@ -9,10 +9,21 @@ function SingleCategoriesVendor(props) {
   const [vendors, setVendors] = useState([]);
   const [totalResult,setTotalResults] = useState(0);
   const { id,category_id, category_slug,categoryId} = useParams();
+  const service=[
+    {
+    "title":'Architect',
+    'detail':'Teja Interiors'
+  },
+  {
+    "title":'Civil Engineer',
+    'detail':'Chowturi engineers'
+  },
+]
 
   useEffect(() => {
     //   // Fetch data from Django backend API
-      fetch('http://127.0.0.1:8000/api/servicecategory/1')
+    // fetch('http://127.0.0.1:8000/api/servicecategory/${category_id}')
+      fetch(`http://127.0.0.1:8000/api/allproducts`)
         .then(response => response.json())
         .then(json => setVendors(json))
         .catch(error => console.error('Error fetching vendors:', error));
@@ -21,10 +32,6 @@ function SingleCategoriesVendor(props) {
 // Fetch data from API products
 // useEffect(() => {
 //    fetchData(baseUrl+'/servicecategory/?category='+category_id);
-//    //fetchData(baseUrl+'/servicecategory/?id='+category_id);
-// //   fetchData(baseUrl+'/servicecategory/?category=1');
-// // fetchData(baseUrl+'/servicecategory/'+category_id);
-//    // fetchData(baseUrl+'/servicecategory/'+category_id);
 //    fetchData(baseUrl+`/servicecategory/1`);
 //    // fetchData(baseUrl+'/servicecategory/1');
 // }, [category_id]);
@@ -52,8 +59,13 @@ function SingleCategoriesVendor(props) {
 // var limit=1;
 // var totalLinks=totalResult/limit;
 // for(let i=1; i<=totalLinks; i++){
-//     links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/servicecategory/?category=${category_id}&page=${i}`)} to={`/servicecategory/category_id/${category_slug}/${category_id}/?page=${i}`} class="page-link">{i}</Link></li>)
+//     links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/servicecategory/?category=${category_id}&page=${i}`)} to={`/SingleCategoriesVendor/${service.title}/${category_slug}/${category_id}/?page=${i}`} class="page-link">{i}</Link></li>)
 //  }
+// //  for(let i=1; i<=totalLinks; i++){
+// //   links.push(<li class="page-item"><Link onClick={()=>changeUrl(baseUrl+`/products/?category=${category_id}&page=${i}`)} to={`/category/${category_slug}/${category_id}/?page=${i}`} class="page-link">{i}</Link></li>)
+// // }
+
+// //  /category_id  
   
   return (
     <>
@@ -73,13 +85,13 @@ function SingleCategoriesVendor(props) {
           </Col>
         ))}
       </Row>
-      {/* <nav aria-label="Page navigation example"> 
-                {/* we can show totla no of products here
-                {totalResult} */}
-                 {/* <ul class="pagination">
+      {/* <nav aria-label="Page navigation example">  */}
+                {/* we can show totla no of products here 
+                {totalResult} */} 
+             {/* <ul class="pagination">
                     {links}
                 </ul>
-             </nav>  */} 
+             </nav>   */}
     </>
   );
 }
@@ -327,3 +339,8 @@ export default SingleCategoriesVendor;
   //   .catch(error => console.error('Error fetching vendors:', error));
   // }, [category_id]); 
   //  <Link to={`/SingleProductCategory/${vendor.id}`}>
+
+  //    //fetchData(baseUrl+'/servicecategory/?id='+category_id);
+// //   fetchData(baseUrl+'/servicecategory/?category=1');
+// // fetchData(baseUrl+'/servicecategory/'+category_id);
+//    // fetchData(baseUrl+'/servicecategory/'+category_id);

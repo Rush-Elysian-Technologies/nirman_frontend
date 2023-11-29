@@ -62,9 +62,9 @@ function App() {
       <Route path='/Login' element={<Login/>} />
       <Route path='/Register' element={<Register/>} />
       <Route path='/HomePageCustomerTestimonials' element={<HomePageCustomerTestimonials/>} />
-      {/* <Route path='/AllVendors' element={<AllVendors/>} /> */}
+      {/* <Route path='/SingleCategoriesVendor' element={<SingleCategoriesVendor/>} /> */}
       {/* <Route path='/AllVendors/:category_id' element={<AllVendors />} /> */}
-      <Route path='/SingleCategoriesVendor' element={<SingleCategoriesVendor/>} />
+      <Route path='/SingleCategoriesVendor/:category_slug/:category_id' element={<SingleCategoriesVendor/>} />
       {/* <Route path='/AllVendors/:category_id' element={<AllVendors />} /> */}
       {/* <Route path="/api/servicecategory/:category_id" component={<AllVendors />} /> */}
       {/* <Route path='/AllVendors/id' element={<AllVendors />} /> */}
@@ -95,3 +95,14 @@ function App() {
 }
 
 export default App;
+
+
+// function App(){
+//   return(
+//    <>
+//    <Header/>
+//    <Footer/>
+//    </>
+//   );
+// }
+//  export default App;
